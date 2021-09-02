@@ -102,7 +102,7 @@ submit.addEventListener('click',()=>{
             Prism.highlightAll();
         });
     }
-    else{
+    else if(requestType=='POST'){
         fetch(url, {
             method: 'POST',
             body: data,
@@ -114,6 +114,26 @@ submit.addEventListener('click',()=>{
         .then((text) =>{
             document.getElementById('responsePrism').innerHTML = text;
             Prism.highlightAll();
+        });
+    }
+    else if(requestType=='PUT'){
+        fetch(url, {
+            method: 'PUT',
+            body: data,
+            headers: {
+                "Content-type" : "application/json; charset=UTF-8"
+            }
+        })
+        .then(response => response.text())
+        .then((text) =>{
+            document.getElementById('responsePrism').innerHTML = text;
+            Prism.highlightAll();
+        });
+    }
+    else{
+        // requestType is delete
+        fetch(url, {
+            method: 'DELETE'
         });
     }
 
