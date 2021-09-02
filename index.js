@@ -102,8 +102,19 @@ submit.addEventListener('click',()=>{
         });
     }
     else{
-        
+        fetch(url, {
+            method: 'POST',
+            body: data,
+            headers: {
+                "Content-type" : "application/json; charset=UTF-8"
+            }
+        })
+        .then(response => response.text())
+        .then((text) =>{
+            document.getElementById('responseJsonText').value = text;
+        });
     }
+    
     
 });
 
