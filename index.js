@@ -53,5 +53,44 @@ plusButton.addEventListener('click', () => {
     params.appendChild(paramElement);
 });
 
+// If user clicks on Submit button 
 
+let submit = document.getElementById('submit');
+submit.addEventListener('click',()=>{
+    // Show please wait in the response box
+
+    document.getElementById('responseJsonText').value = "Please Wait... Fetching Response";
+    // Fetch all the inputs that user fetched
+
+    let url = document.getElementById('urlField').value;
+    let requestType = document.querySelector("input[name='requestType']:checked").value;
+    let contentType = document.querySelector("input[name='contentType']:checked").value;
+
+    
+    data = {};
+    if(contentType=='params'){
+        for(let i = 0; i<addedParamsCount-1;i++){
+            if(document.getElementById('parameterValue'+(i+1))!=undefined){
+                // Retrieving all parameters
+                let key = document.getElementById('parameterKey'+(i+1)).value;
+                let value = document.getElementById('parameterValue'+(i+1)).value;
+                // Json Object for data
+                data[key] = value;
+            }
+        }
+        
+        data = JSON.stringify(data);
+    }else{
+        // User clicked on json
+        data = document.getElementById('requestJsonText').value;
+    }
+
+    console.log(url);
+    console.log(requestType);
+    console.log(contentType);
+    console.log(data);
+
+    
+    
+});
 
