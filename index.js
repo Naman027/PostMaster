@@ -59,7 +59,7 @@ let submit = document.getElementById('submit');
 submit.addEventListener('click',()=>{
     // Show please wait in the response box
 
-    document.getElementById('responseJsonText').value = "Please Wait... Fetching Response";
+    document.getElementById('responsePrism').innerHTML = "Please Wait... Fetching Response";
     // Fetch all the inputs that user fetched
 
     let url = document.getElementById('urlField').value;
@@ -98,7 +98,8 @@ submit.addEventListener('click',()=>{
         })
         .then(response => response.text())
         .then((text) =>{
-            document.getElementById('responseJsonText').value = text;
+            document.getElementById('responsePrism').innerHTML = text;
+            Prism.highlightAll();
         });
     }
     else{
@@ -111,10 +112,11 @@ submit.addEventListener('click',()=>{
         })
         .then(response => response.text())
         .then((text) =>{
-            document.getElementById('responseJsonText').value = text;
+            document.getElementById('responsePrism').innerHTML = text;
+            Prism.highlightAll();
         });
     }
-    
+
     
 });
 
