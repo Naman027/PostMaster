@@ -1,7 +1,7 @@
 # PostMaster
 ## About The Project
 <li>A PostMan Client for GET, POST, PUT, DELETE Requests. </li>
-<li>Can add Custom Parameters for POST Requests. </li>
+<li>Can add Custom Parameters for Requests. </li>
 <li>Get response in JSON</li>
 <li>Used PrismJs for styling of json response</li>
 
