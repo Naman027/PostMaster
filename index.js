@@ -90,7 +90,20 @@ submit.addEventListener('click',()=>{
     console.log(contentType);
     console.log(data);
 
-    
+    if(requestType=='GET'){
+        // Now a get request has to be invoked
+
+        fetch(url, {
+            method: 'GET'
+        })
+        .then(response => response.text())
+        .then((text) =>{
+            document.getElementById('responseJsonText').value = text;
+        });
+    }
+    else{
+        
+    }
     
 });
 
